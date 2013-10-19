@@ -1,0 +1,5 @@
+output/
+cache/
+bin/
+*.db
+*.pyc
