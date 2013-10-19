@@ -148,7 +148,7 @@ duymazsınız. Şahsen ben hiç kullanmadım. İngilizce bilenler, daha
 detaylı bilgi için: [metaclass hakkındaki So sorusuna](http://stackoverflow.com/questions/395982/metaclass-new-cls-and-super-can-someone-explain-the-mechanism-ex "Python meta sınıflar")
 bakabilirler.
 
-**Ekleme:** *5 Ekim 2013* Bununla ilgili ingilizce bir kaynağı çevirdim. [Python metaclass örnekleri](orneklerle-python-meta-siniflar "Örneklerle Python Metasınıflar") ile ilgili yazıyı okuabilirsiniz.
+**Ekleme:** *5 Ekim 2013* Bununla ilgili ingilizce bir kaynağı çevirdim. [Python metaclass örnekleri](orneklerle-meta-classes-siniflar.html "Örneklerle Python Metasınıflar") ile ilgili yazıyı okuabilirsiniz.
 
 **\_\_call\_\_():** Bu metot sınıfı çağırmak için kullanılır.
 `b = a()` gibi bir kodla, sınıfı çağırmış olursunuz. yani,
@@ -256,7 +256,7 @@ argüman, olay türünü, ikinci argüman ise, çağırılacak fonksiyonu
 gösteriyor.
 
     :::python
-    # Kaynak: http://www.pythonware.com/library/tkinter/introduction/events-and-bindings.htm
+    # Kaynak: http://www.pythonware.com/media/data/an-introduction-to-tkinter.pdf
     from Tkinter import *
     
     uygulama = Tk()
@@ -381,4 +381,4 @@ olması için, `global` kullanılır.
     print(x) # 15 yazar, fonksiyonun içinde, genel x değiştirilmiştir.
 
   [Python'da veri modelleri]: http://docs.python.org/reference/datamodel.html#special-method-names
-  [Events and Bindings]: http://www.pythonware.com/library/tkinter/introduction/events-and-bindings.htm
+  [Events and Bindings]: http://www.pythonware.com/media/data/an-introduction-to-tkinter.pdf

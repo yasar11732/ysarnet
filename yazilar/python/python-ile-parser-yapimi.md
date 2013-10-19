@@ -10,7 +10,7 @@ Parser konusunda genel bilgi almak için, [Parsing Kavramı ve Yöntemleri](pars
 okuyabilirsiniz.
 
 Öncelikle, izleyeceğimiz yöntemden biraz bahsedeyim. Burada kullanacağımız yöntem, çok orjinal bir yöntem değil aslında.
-[Vaughan Pratt](Vaughan Pratt) tarafından Recursive Descent ve Operator Precedence yöntemlerinin güzel yanlarını birleştiren
+[Vaughan Pratt](http://boole.stanford.edu/pratt.html) tarafından Recursive Descent ve Operator Precedence yöntemlerinin güzel yanlarını birleştiren
 bir parse yöntemi, 1973 yılında bir sempozyumda sunuldu. 2007 yılında, [Douglas Crockford](http://www.crockford.com/) bu yöntemi
 kullanarak, [Top Down Operator Precedence](http://javascript.crockford.com/tdop/tdop.html) adında bir yazı yazdı. Bu yazıda,
 bir javascript parser'ı örnek gösteriliyordu. Bundan esinlenen [Fredrik Lundh](http://effbot.org/zone/about.htm)
