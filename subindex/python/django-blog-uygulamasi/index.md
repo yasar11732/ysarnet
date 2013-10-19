@@ -1,6 +1,6 @@
 <!--
 .. title: Bu kategorideki yazılar
-.. date: 2013-10-16 03:08
+.. date: 2013-10-19 15:13
 .. slug: index
 -->
 

@@ -1,6 +1,6 @@
 <!--
 .. title: Bu kategorideki yazılar
-.. date: 2013-10-16 03:08
+.. date: 2013-10-19 15:13
 .. slug: index
 -->
 
@@ -57,4 +57,12 @@
  * [2013/10/14 16:35:21 - Lexical Analiz](lexical-analiz.html)
  * [2013/10/14 19:46:19 - Lexical Analiz 2](lexical-analiz-2.html)
  * [2013/10/14 23:20 - Lexical Analiz 3](lexical-analiz-3.html)
- * [2013/10/16 03:07:43 - Parsing Kavramı ve Yöntemleri](parsing-parser-topdown-operator-precedence.html)
+ * [2013/10/16 03:15 - Parsing Kavramı ve Yöntemleri](parsing-parser-topdown-operator-precedence.html)
+ * [2013/10/16 15:06 - Python ile parser yapımı](python-ile-parser-yapimi.html)
+ * [2013/10/16 20:50 - Parser - Yardımcı Fonksiyonlar](parser-yardimci-fonksiyonlar.html)
+ * [2013/10/16 22:16 - Parser - Statement](parser-statement.html)
+ * [2013/10/18 15:30 - Python Package Statistics](python-package-statistics.html)
+ * [2013/10/18 15:32 - Python Paket İstatistikleri](python-paket-istatistikleri.html)
+ * [2013/10/18 19:45:33 - Parser - Kod Dönüştürme](parser-kod-donusturme.html)
+ * [2013/10/18 23:43:48 - Python package statistics - addition](python-package-statistics-additions.html)
+ * [2013/10/18 23:57 - Python Paket İstatistikleri - Ekleme](python-paket-istatistik-ekleme.html)
