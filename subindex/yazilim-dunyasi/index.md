@@ -1,6 +1,6 @@
 <!--
 .. title: Bu kategorideki yazılar
-.. date: 2013-10-19 15:13
+.. date: 2013-11-02 21:25
 .. slug: index
 -->
 
@@ -25,3 +25,5 @@
  * [2013-10-07 20:26 - Neden nikola'yı tercih ettim?](python-nikola-static-site-generator.html)
  * [2013/10/09 17:19:33 - İyi Programcı Nasıl Olunur](iyi-programci-yazilimci-nasil-olunur.html)
  * [2013/10/13 12:51:18 - Haskell Öğreniyorum](haskell-tanitim.html)
+ * [2013/10/22 17:14 - Neden İşletim Sistemi Geliştirmemeliyiz?](neden-isletim-sistemi-gelistirmemeliyiz.html)
+ * [2013/10/24 16:38 - Neden İşletim Sistemi Geliştirmemeliyiz - Ekleme](neden-isletim-sistemi-gelistirmemeliyiz-ekleme.html)

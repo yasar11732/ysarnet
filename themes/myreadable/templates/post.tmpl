@@ -15,7 +15,7 @@ ${helper.twitter_card_information(post)}
     ${code}
 % endif
     <article itemscope itemtype=http://schema.org/BlogPosting class="postbox">
-	
+	${helper.html_pager(post)}
     <h1 itemprop=name>${title|h}</h1>
 	
 	<meta itemprop="url" content="${post.permalink(absolute=True)}">
@@ -29,7 +29,7 @@ ${helper.twitter_card_information(post)}
         ${helper.html_translations(post)}
         ${helper.html_tags(post)}
 		Yazan:  <a itemprop="author" rel="author" href="${authorprofile}">${author}</a>
-		<div style="float: right"><div class="g-plusone" data-href="${post.permalink(absolute=True)}"></div></div>
+		<div style="float: right"><a href="https://twitter.com/share" class="twitter-share-button" data-url="${post.permalink(absolute=True)}" data-text="${title|h}" data-via="y_arabaci" data-lang="tr">Tweet</a><div class="g-plusone" data-href="${post.permalink(absolute=True)}"></div></div>
     </small>
     <hr>
 	<div itemprop="articleBody">

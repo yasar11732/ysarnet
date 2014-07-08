@@ -1,0 +1,40 @@
+<!--
+.. date: 2013/10/21 22:10
+.. slug: unicode-decode-error-ordinal-not-in-range
+.. title: UnicodeDecodeError - ordinal not in range(128)
+.. description: Yeni baþlayanlara yönelik, UnicodeError yazýsý
+-->
+
+
+
+UnicodeError, Python 2.x sürümlerinde sýkça karþýlaþýlan ve Python diline
+veya programlamaya yeni baþlayanlarýn kafasýna karýþtýrabilecek bir hata.
+Çoðu zaman, python dosyasýnýn kullandýðý encoding'i doðru belirtmemekten
+veya internetten alýnan dosyayý doðru encoding'i kullanarak decode etmemekten
+kaynaklanan bu hata, hatanýn doðasýný bilmiyorsanýz, sizi biraz uðraþtýrabilir.
+Bu yazý size bu hatanýn neden kaynaklandýðýný, bundan kaçýnmak için neler
+yapmak gerektiðini ve karþýlaþýldýðý zaman nasýl çözüleceði gösterecek. Bu yazý,
+biraz Python bilen baþlangýç seviyesindeki programcýlara yönelik olacak.
+
+Yazýnýn içeriði:
+
+ * Temel encoding/decoding konseptleri
+ * Python str ve unicode objeleri
+ * Doðru encoding'i tespit etmek
+ 
+Öncelikle, kafanýza yerleþtirmeniz gereken en önemli þey, **Bilgisayarda
+yazý olmadýðý gerçeðidir.**
+
+<!-- wrapper div -->  
+<div class='image-wrapper'>  
+    <!-- image -->  
+    <img src='/assets/images/spoon.jpeg' />  
+    <!-- description div -->  
+    <div class='description'>  
+        <!-- description content -->  
+        <p class='description_content'>There is no spoon!</p>  
+        <!-- end description content -->  
+    </div>  
+    <!-- end description div -->  
+</div>  
+<!-- end wrapper div -->  

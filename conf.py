@@ -11,7 +11,7 @@ sys.path.append("themes/myreadable/messages")
 # Data about this site
 BLOG_AUTHOR = "Yaşar Arabacı"
 AUTHOR_PROFILE = "/yasar-arabaci.html"
-BLOG_TITLE = "Yaşar Arabacı: Python, Linux, ve Programlama"
+BLOG_TITLE = "Python, Yazılım, ve Programlama"
 # This is the main URL for your site. It will be used
 # in a prominent link
 SITE_URL = "http://ysar.net/"
@@ -50,7 +50,7 @@ BLOG_DESCRIPTION = 'Yaşar Arabacı\'nın blogunda, Python\'un nedir, ne işe ya
 # in the default language will be shown instead.
 
 # What is the default language?
-DEFAULT_LANG = "tr"
+DEFAULT_LANG = "tr_tr"
 
 # What other languages do you have?
 # The format is {"translationcode" : "path/to/translation" }
@@ -70,7 +70,6 @@ NAVIGATION_LINKS = {
 		('/soru-cevap.html','Soru&Cevap'),
         ('/arsiv/', 'Arşiv'),
 		('/galeri/eglence',"Eğlencelik"),
-        ('/rss.xml', 'RSS'),
     ),
 }
 """
@@ -323,12 +322,11 @@ INDEX_TEASERS = True
 # LICENSE = ""
 # I recommend using the Creative Commons' wizard:
 # http://creativecommons.org/choose/
-LICENSE = """
- <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.tr"><img alt="Creative Commons Lisansı" style="border-width:0" src="/images/by-sa.png" width="88" height="31"/></a><br />Bu çalışma <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.tr">Creative Commons Alıntı-LisansıDevamEttirme 3.0 Unported Lisansı</a> ile lisanslanmıştır."""
+LICENSE = "Sitedeki materyali kaynak göstererek kopyalayabilir veya paylaşabilirsiniz."
 
 # A small copyright notice for the page footer (in HTML).
 # Default is ''
-CONTENT_FOOTER = 'Contents &copy; {date}         <a href="mailto:{email}">{author}</a> - Powered by         <a href="http://getnikola.com">Nikola</a>         {license}'
+CONTENT_FOOTER = 'Contents &copy; {date} <a href="mailto:{email}">{author}</a> <br />{license}'
 CONTENT_FOOTER = CONTENT_FOOTER.format(email=BLOG_EMAIL,
                                        author=BLOG_AUTHOR,
                                        date=time.gmtime().tm_year,
@@ -536,6 +534,7 @@ window.___gcfg = {
   ga('send', 'pageview');
 
 </script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 """
 
 #EXTRA_HEAD_DATA = """
@@ -551,7 +550,7 @@ window.___gcfg = {
 # is served from the NetDNA CDN
 # Set this to False if you want to host your site without requiring access to
 # external resources.
-USE_CDN = True
+# USE_CDN = True
 
 # Extra things you want in the pages HEAD tag. This will be added right
 # before </HEAD>
@@ -611,7 +610,7 @@ TWITTER_CARD = {
 TIMEZONE = 'Europe/Istanbul'
 
 # If webassets is installed, bundle JS and CSS to make site loading faster
-USE_BUNDLES = False
+USE_BUNDLES = True
 
 # Plugins you don't want to use. Be careful :-)
 DISABLED_PLUGINS = ["render_tags","render_listings"]

@@ -1,6 +1,6 @@
 <!--
 .. title: Bu kategorideki yazılar
-.. date: 2013-10-19 15:13
+.. date: 2013-11-02 21:25
 .. slug: index
 -->
 
@@ -66,3 +66,8 @@
  * [2013/10/18 19:45:33 - Parser - Kod Dönüştürme](parser-kod-donusturme.html)
  * [2013/10/18 23:43:48 - Python package statistics - addition](python-package-statistics-additions.html)
  * [2013/10/18 23:57 - Python Paket İstatistikleri - Ekleme](python-paket-istatistik-ekleme.html)
+ * [2013/10/21 21:44 - UnicodeDecodeError - ordinal not in range(128)](unicode-decode-error-ordinal-not-in-range.html)
+ * [2013/10/25 22:36:29 - Bloğu nasıl sunucuya yüklüyorum?](sha256-ftputil.html)
+ * [2013/10/26 02:37 - Debugging Decorator](debugging-decorator.html)
+ * [2013/10/27 15:27 - Neden str toplamamalısınız](neden-str-toplamamalisiniz.html)
+ * [2013/11/02 21:00 - Bir optimizasyon hikayesi](bir-optimizasyon-hikayesi.html)

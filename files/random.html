@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+	<meta name="robots" content="noindex,noarchive">
+	<script>
+		function loadXMLDoc(dname)
+{
+if (window.XMLHttpRequest)
+  {
+  xhttp=new XMLHttpRequest();
+  }
+else
+  {
+  xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xhttp.open("GET",dname,false);
+xhttp.send();
+return xhttp.responseXML;
+}
+function beginswith(str, substr) {
+	if (str.length <= substr.length) return false;
+	return str.slice(0, substr.length) == substr
+}
+
+function makeanchor(href) {
+	// http://stackoverflow.com/questions/736513/how-do-i-parse-a-url-into-hostname-and-path-in-javascript
+	var a = document.createElement("a");
+	a.href = href;
+	return a;
+}
+function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+
+function isindex(href) {
+	if (endsWith(href,"/") || endsWith(href,"index.html")) return true;
+	return false;
+}
+function postpath(a) {
+	var postdirs = ["/python","/algoritma","/yazilim-dunyasi"];
+	for (var i = 0; i < postdirs.length; i++) {
+		if (beginswith(a.pathname, postdirs[i]) && !isindex(a.pathname)) return true;
+	}
+	return false;
+}
+	</script>
+  </head>
+  <body>
+  <script>
+  xmlDoc=loadXMLDoc("sitemap.xml");
+  var links = xmlDoc.getElementsByTagName("loc")
+  do {
+  var randomnumber=Math.floor(Math.random()*links.length)
+  var href = links[randomnumber].childNodes[0].nodeValue
+  var a = makeanchor(href)
+  } while (!postpath(a));
+  document.location.href = a.href
+</script>
+  </body>
+</html>

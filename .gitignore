@@ -3,3 +3,6 @@ cache/
 bin/
 *.db
 *.pyc
+mongoose*
+hashes
+ftp_credentials.txt

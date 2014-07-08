@@ -1,6 +1,6 @@
 <!--
 .. title: Bu kategorideki yazılar
-.. date: 2013-10-19 15:13
+.. date: 2013-11-02 21:25
 .. slug: index
 -->
 
@@ -10,3 +10,5 @@
  * [2012-01-21 01:17:00 - İki bilinmeyenli denklem çözümleri](iki-bilinmeyenli-denklem-cozumleri.html)
  * [2012-11-26 16:54:48 - Matlab'da Sieve of Erastosthenes algoritması](matlab-sieve-of-erastosthenes.html)
  * [2012-12-18 18:31:18 - Python narsist sayılar](python-narsist-sayilar.html)
+ * [2013/10/23 16:00 - 4 renk teoremi ve harita boyama](4-renk-teoremi-ve-harita-boyama.html)
+ * [2013/10/28 12:37:17 - Pixel Sıralama Videoları](pixel-siralama-videolari.html)
