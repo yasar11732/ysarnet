@@ -25,33 +25,6 @@ Yaz&#305;n&#305;n içeri&#287;i:
 Öncelikle, kafan&#305;za yerle&#351;tirmeniz gereken en önemli &#351;ey, **Bilgisayarda
 yaz&#305; olmad&#305;&#287;&#305; gerçe&#287;idir.**
 
-<style>
-div.wrapper {
-	width: 100%;
-	min-height: 420px;
-}
-div.figure {
-  float: right;
-  width: 50%;
-  border: thin silver solid;
-  margin: 0.5em;
-  padding: 0.5em;
-}
-div.figure p {
-  text-align: center;
-  font-style: italic;
-  font-size: smaller;
-  text-indent: 0;
-}
-</style>
-<div class="wrapper">
-<div class="figure">
-  <p><img src="/images/spoon.jpg"
-    alt="matrix - no spoon"></p>
-  <p>There is no spoon</p>
-</div>
-</div>
-
 Peki o zaman, bizim yazı dosyalarının içinde ne var? Tabi ki sayılar var. Bilgisayarda sadece sayılar vardır! Bir
 yazı dosyası oluşturduğunuzda, o yazı, çeşitli şekillerde bir sayı dizisine dönüştürülür. Bunu bir nevi şifreleme
 gibi düşünebilirsiniz. Bu şifrelemeye, encoding diyoruz. En eski encodingler'den birisi, ascii olup, şu şekildedir:

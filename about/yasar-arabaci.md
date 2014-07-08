@@ -14,7 +14,7 @@ img.profile-resmi {
 }
 </style>
 
-![Yaşar Arabacı Profile foto](/images/profil.png){.profile-resmi}Merhaba,
+Merhaba,
 
 An itibariyle <span itemprop="affiliation">Bilkent Üniversitesi</span>nde İktisat <span itemprop="jobTitle">öğrenci</span>siyim.
 
