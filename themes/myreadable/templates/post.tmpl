@@ -35,7 +35,8 @@ ${helper.twitter_card_information(post)}
 	<div itemprop="articleBody">
     ${post.text()}
 	</div>
-    ${helper.html_pager(post)}
+	<p style="text-align:center"><a href="http://area51.stackexchange.com/proposals/64143/turkish-language-usage?referrer=67_nJx8n4k8eXznPcwqhDA2"><img src="http://area51.stackexchange.com/ads/proposal/64143.png" width="220" height="250" alt="Stack Exchange Q&A site proposal: Turkish Language & Usage" /></a></p>
+	${helper.html_pager(post)}
     % if not post.meta('nocomments'):
         ${comments.comment_form(post.permalink(absolute=True), post.title(), post.base_path)}
     % endif
