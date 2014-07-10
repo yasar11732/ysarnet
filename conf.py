@@ -509,10 +509,7 @@ INDEX_DISPLAY_POST_COUNT = 5
 # Also, there is a local search plugin you can use, based on Tipue, but it requires setting several
 # options:
 
-#SEARCH_FORM = """
-#<span class="navbar-form pull-left">
-#<input type="text" id="tipue_search_input">
-#</span>"""
+SEARCH_FORM = """<div class="gcse-search"></div>"""
 
 BODY_END = """
 <script>
