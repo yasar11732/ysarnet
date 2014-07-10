@@ -3,7 +3,6 @@
 .. title: Yaşar Arabacı
 .. name: Yaşar Arabacı
 .. description: Bilkent Üniversitesi iktisat bölümünde lisans öğrencisi. Boş vakitlerinde programcılıkla uğraşır. Python ve C dillerini sever.
-.. image: http://ysar.net/images/profil.png
 .. url: http://ysar.net/hakkimda.html
 .. date: 2013-10-06 15:04
 -->

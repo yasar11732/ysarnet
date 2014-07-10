@@ -19,6 +19,11 @@ ${set_locale(lang)}
     ${extra_head_data}
 </head>
 <body>
+        %if search_form:
+			<div style="width: 450px; position: fixed; right:5px; top: 65px">
+            ${search_form}
+			</div>
+        %endif
 <!-- Menubar -->
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -35,9 +40,6 @@ ${set_locale(lang)}
         <ul class="nav navbar-nav">
             ${bootstrap.html_navigation_links()}
         </ul>
-        %if search_form:
-            ${search_form}
-        %endif
 
         <ul class="nav navbar-nav navbar-right">
             <%block name="belowtitle">
@@ -86,7 +88,6 @@ ${set_locale(lang)}
     s.parentNode.insertBefore(gcse, s);
   })();
 </script>
-<div class="gcse-search"></div>
 </div>
 <p><a href="/rss.xml">RSS</a></p>
 <p>Sevdiğim bloglar:<p>
