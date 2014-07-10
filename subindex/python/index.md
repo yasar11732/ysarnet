@@ -1,6 +1,6 @@
 <!--
 .. title: Bu kategorideki yazılar
-.. date: 2013-11-02 21:25
+.. date: 2014-07-10 08:55
 .. slug: index
 -->
 
@@ -71,3 +71,5 @@
  * [2013/10/26 02:37 - Debugging Decorator](debugging-decorator.html)
  * [2013/10/27 15:27 - Neden str toplamamalısınız](neden-str-toplamamalisiniz.html)
  * [2013/11/02 21:00 - Bir optimizasyon hikayesi](bir-optimizasyon-hikayesi.html)
+ * [2013/11/15 18:17:06 - Python Metot Türleri](metot-turleri.html)
+ * [2014/07/10 03:22 - Threading mi, yoksa multiprocessing mi kullanmalıyım](threading-vs-multiprocessing.html)

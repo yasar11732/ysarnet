@@ -1,6 +1,6 @@
 <!--
 .. title: Bu kategorideki yazılar
-.. date: 2013-11-02 21:25
+.. date: 2014-07-10 08:55
 .. slug: index
 -->
 
@@ -12,3 +12,5 @@
  * [2012-12-18 18:31:18 - Python narsist sayılar](python-narsist-sayilar.html)
  * [2013/10/23 16:00 - 4 renk teoremi ve harita boyama](4-renk-teoremi-ve-harita-boyama.html)
  * [2013/10/28 12:37:17 - Pixel Sıralama Videoları](pixel-siralama-videolari.html)
+ * [2013/11/03 06:32 - Exact Cover, Dancing Links ve Sudoku Çözme](exact-cover-dancing-links-ve-sudoku-cozme.html)
+ * [2013/11/04 01:59 - Evrimsel Algoritmalar](evrimsel-algoritmalar.html)
