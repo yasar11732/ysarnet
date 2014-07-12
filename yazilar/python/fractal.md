@@ -121,38 +121,85 @@ f+f--f+f+f+f--f+f--f+f--f+f+f+f--f+f+f+f--f+f+f+f--f+f--f+f--f+f+f+f--f+f--f+f--
 
 Buradaki ana fikirden yola çıkarak, farklı fraktallar çizmek için kullanılabilecek python sınıfları hazırladım, kodlar aşağıda;
 
+** Güncelleme: ** *12.07.2014 10:55* Kodlara biraz daha çeki düzen verdim.
+
 	:::python
+	# -*- coding: utf-8 -*-
 	import turtle
 
-	class advanced_turtle(turtle.Turtle):
-
-		def push_state(self):
-
-			self._stack.append((self.pos(), self.heading()))
-
-		def pop_state(self):
-
-			isdown = self.isdown()
-			
-			pos, heading = self._stack.pop()
-
-			if isdown:
-				self.penup()
-
-			self.setpos(pos)
-			self.setheading(heading)
-
-			if isdown:
-				self.pendown()
+	class Lindenmayer(turtle.Turtle):
+		"Bracketed L System"
+		
+		syms = {
+			"F":"gforward",
+			"f":"jforward",
+			"+":"tright",
+			"-":"tleft",
+			"A":"gforward",
+			"B":"gforward",
+			"U":"penup",
+			"D":"pendown",
+			"[":"push_stack",
+			"]":"pop_stack",
+			"1":"color1", # black by default
+			"2":"color2", # red by default
+			"3":"color3", # green by default
+			"4":"color4", # blue by default
+		}
 
 		def draw(self):
-		
-			for x in self.string:
 
-				self.actions[x](self)
+			self.hideturtle() # to speed up the drawing
+			for x in self.string:
+				try:
+					getattr(self,Lindenmayer.syms[x])()
+				except KeyError:
+					"For actions that don't do anything"
+					pass
+
+		def gforward(self): self.forward(self.d)
+
+		def jforward(self):
+			"Go forward, but don't draw"
+			self.penup()
+			self.forward(self.d)
+			self.pendown()
+
+		def tleft(self):
+			"Turn left by degrees"
+			self.left(self.a)
+
+		def tright(self):
+			"Turn right by degrees"
+			self.right(self.a)
+
+		def push_stack(self):
+			"push state to stack"
+			self._stack.append((self.pos(), self.heading()))
+
+		def pop_stack(self):
+			"pop and restore state"
+
+			pos, heading = self._stack.pop()
+			self.penup()
+			self.setpos(pos)
+			self.setheading(heading)
+			self.pendown()
+
+		def color1(self):
+			self.pencolor("#000000")
+
+		def color2(self):
+			self.pencolor("#ff0000")
+
+		def color3(self):
+			self.pencolor("#00ff00")
+
+		def color4(self):
+			self.pencolor("#0000ff")
 
 		def fix_rules(self):
-			"Add dummy element"
+			"Add unspecified conversions. They stay the same"
 
 			parts = set("".join(self.rules.keys() + self.rules.values()))
 
@@ -161,7 +208,8 @@ Buradaki ana fikirden yola çıkarak, farklı fraktallar çizmek için kullanıl
 					self.rules[x] = x
 
 		def init(self, depth, speed=0):
-
+			"Prepare required variables before draw"
+			
 			self._stack = []
 			self.speed(speed)
 
@@ -180,170 +228,87 @@ Buradaki ana fikirden yola çıkarak, farklı fraktallar çizmek için kullanıl
 			self.after_init()
 
 		def after_init(self):
-
+			"Extra stuff, executed right after init function"
 			pass
 
+	#### Begin L-System Equations ###
 
-	class koch(advanced_turtle):
+	class koch(Lindenmayer):
 
-		rules = {'f':'f+f--f+f'}
-
-		begin = "f"
-
-		def gforward(self): self.forward(self.length)
-
-		def tright(self): self.right(60)
-
-		def tleft(self): self.left(60)
-
-		actions = {
-			"f": gforward,
-			"+": tright,
-			"-": tleft }
-
-		def after_init(self): self.length = 400 / 3 ** self.depth
+		rules = {'F':'F-F++F-F'}
+		begin = "F"
+		a = 60
+		
+		def after_init(self): self.d = max(400 / 3 ** self.depth,1) # set distance appopropiate to complexity
 		
 
-	class square_koch(advanced_turtle):
+	class square_koch(Lindenmayer):
 
-		rules = {'f':'f-f+f+f-f'}
-		begin = "f"
+		rules = {'F':'F-F+F+F-F'}
+		begin = "F"
+		a = 90
+		def after_init(self): self.d = max(400 / 3 ** self.depth,1)
 
-		def gforward(self): self.forward(self.length)
-		def tright(self):   self.right(90)
-		def tleft(self):    self.left(90)
-		
-		actions = {
-			'f': gforward,
-			'+': tright,
-			'-': tleft
-		}
 
-		def after_init(self): self.length = 400 / 3 ** self.depth
-
-	class sierpinsky(advanced_turtle):
+	class sierpinsky(Lindenmayer):
 		
 		rules = {'A':'B-A-B', 'B':'A+B+A'}
 		begin = 'A'
+		a = 60
 
-		def gforward(self): self.forward(self.length)
-		def tright(self):   self.right(60)
-		def tleft(self):    self.left(60)
+		def after_init(self): self.d = max( 300 / 2 ** self.depth,1)
 
-		
-		actions = {
-			'A': gforward,
-			'B': gforward,
-			'-': tleft,
-			'+': tright,
-		}
+	class fibonacci_tree(Lindenmayer):
 
-		def after_init(self): self.length = 300 / 2**self.depth
+		rules = {'A':'AA', 'B': 'A[-B]+B'}
+		begin = "B"
+		a = 30
 
-	class fibonacci_tree(advanced_turtle):
+		def after_init(self): self.d =  max(300 / 2**self.depth,1); self.left(90)
 
-		rules = {'1':'11', '0': '1[0]0'}
+	class dragon_curve(Lindenmayer):
 
-		begin = "0"
+		rules = {'x':'x+yF', 'y': 'Fx-y'}
+		begin = "Fx"
+		a = 90
 
-		def gforward(self): self.forward(self.length)
-		def branch_left(self): self.push_state(); self.left(45)
-		def branch_right(self): self.pop_state(); self.right(45)
+		def after_init(self): self.d =max( 300 / 1.5 ** self.depth, 1)
 
-		actions = {
-			"0": gforward,
-			"1": gforward,
-			"[": branch_left,
-			"]": branch_right
-		}
 
-		def after_init(self): self.length = 300 / 2**self.depth
 
-	class dragon_curve(advanced_turtle):
-
-		rules = {'x':'x+yf', 'y': 'fx-y'}
-
-		begin = "fx"
-
-		def gforward(self): self.forward(self.length)
-		def tleft(self): self.left(90)
-		def tright(self): self.right(90)
-
-		actions = {
-			"f": gforward,
-			"-": tleft,
-			"+": tright,
-			"x": lambda self: None,
-			"y": lambda self: None,
-		}
-
-		def after_init(self): self.length = 300 / (1.5) ** self.depth
-
-	class fractal_plant(advanced_turtle):
+	class fractal_plant(Lindenmayer):
 
 		rules = {'X':'F-[[X]+X]+F[+FX]-X', 'F': 'FF'}
-
 		begin = "X"
+		a = 25
 
-		def gforward(self): self.forward(self.length)
-		def tleft(self): self.left(25)
-		def tright(self): self.right(25)
-		def push(self): self.push_state()
-		def pop(self):  self.pop_state()
-
-		actions = {
-			"F": gforward,
-			"-": tleft,
-			"+": tright,
-			"X": lambda self: None,
-			"[": push,
-			"]": pop
-		}
-
-		def after_init(self): self.length = max(120 / 1.9 ** self.depth, 1) 
-
+		def after_init(self):
+			self.d = max(120 / 1.9 ** self.depth, 1)
+			self.left(90)
+			self.pensize(3)
 		
-
 	if __name__ == "__main__":
-		
+
+		from time import sleep
 		wn = turtle.Screen()
 
-		k = koch()
-		k.init(4) # level of detail
-		k.draw()
+		things_to_draw = (
+			(koch,3),
+			(square_koch,3),
+			(sierpinsky,6),
+			(fibonacci_tree,5),
+			(dragon_curve,10),
+			(fractal_plant,5),   
+		)
 
-		wn.clearscreen()
-		
-		sk = square_koch()
-		sk.init(4)
-		sk.draw()
-
-		wn.clearscreen()
-		
-		s = sierpinsky()
-		s.init(6)
-		s.draw()
-
-		wn.clearscreen()
-		
-		ft = fibonacci_tree()
-		ft.init(6)
-		ft.draw()
-
-		wn.clearscreen()
-		
-		dc = dragon_curve()
-		dc.init(10)
-		dc.draw()
-
-		wn.clearscreen()
-
-		fp = fractal_plant()
-		fp.init(5)
-		fp.draw()
-		
+		for c, x in things_to_draw:
+			wn.clearscreen()
+			f = c()
+			f.init(x)
+			f.draw()
+			sleep(1)
+			
 		wn.exitonclick()
-		
 
 Bunlar da sonuçlarımız;
 
