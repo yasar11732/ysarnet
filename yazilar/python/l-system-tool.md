@@ -22,7 +22,7 @@ Programın Py2 versiyonuyla ilgilenmek isteyeniniz varsa, github'dan fork etmeyi
 Programı kullanmak için PIL kütüphanesine ihtiyacınız olacak. Windows için gerekli kurulum dosyalarını [Gayri-resmi Python kurumları](http://www.lfd.uci.edu/~gohlke/pythonlibs/)
 sayfasından ulaşabilirsiniz. Linux için hangi paketleri yüklemek gerekir henüz tam emin değilim, kendi dağıtımınızın paketlerini biraz kurcalayın.
 
-<a href="http://i.imgur.com/tNZP30L.png" target="_blank"><img src="http://i.imgur.com/tNZP30L.png"/ style="width:850px"></a>
+<a href="http://i.imgur.com/KHkV5Uq.png" target="_blank"><img src="http://i.imgur.com/KHkV5Uq.png"/ style="width:850px"></a>
 
 Program yukarıdaki resimde gördüğünüz gibi bir arayüze sahip. Sol üstteki yazı kutucuklarına istediğiniz parametleri girdikten sonra, Enter'a veya
 alttaki render tuşuna basarak, ortadaki görüntüyü güncelleyebilirsiniz. Kutucuklar şu işlere yarıyor;
@@ -46,8 +46,7 @@ Eğer denediğiniz bir şekli beğendiyseniz, bunun denklemini `save` tuşuyla b
 
 Ayrıca, o anki görüntüyü resim olarak da kaydedebilirsiniz.
 
-En sağda, birkaç örnek göreceksiniz. Kendi şekillerinizi çizmeye başlamak için bunlardan yola çıkabilirsiniz. Daha fazla örneği internet
-üzerinden bulabilirsiniz.
+En sağda, programlar birlikte gelen, veya sizin kaydettiğiniz dosyaları görecekseniz, bunları da seçerek yükleyebilirsiniz.
 
 Böyle şeylere meraklı olanlarınız bir denesin, istek & şikayet doğrultusunda, vaktim olursa, gerekli düzenlemeleri de yapabilirim. Hiç olmadı siz
 yapar github'dan pull request gönderirsiniz, o şekilde yaparız.
