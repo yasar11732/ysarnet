@@ -48,9 +48,11 @@ for f in dangling_files:
     parts = parts[1:]
     target = posixpath.join("/httpdocs",*parts)
     print "removing file",target
-    host.remove(target)
-    
-
+    try:
+        host.remove(target)
+    except ftputil.ftp_error.PermanentError as err:
+        print(err)
+        continue
 
 hash_utils.write_hashes(newhashes)
 
