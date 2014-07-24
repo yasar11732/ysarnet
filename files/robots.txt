@@ -1,4 +1,0 @@
-Sitemap: http://ysar.net/sitemap.xml
-
-User-Agent: *
-Disallow: /random.html

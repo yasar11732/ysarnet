@@ -9,36 +9,27 @@ def create_hashes():
         for name in files:
             s = hashlib.sha256()
             filepath = os.path.join(root, name)
-
-            # there is no with statament in py 2.5 ...
-            f = open(filepath)
-            try:
+            with open(filepath, 'rb') as f:
                 s.update(f.read())
-            finally:
-                f.close()
-            
+
             hashes[filepath] = s.hexdigest()
 
     return hashes
 
 def write_hashes(hashes):
 
-    h = open("hashes","w")
-    data = "\n".join(("%s\0%s" % (filepath, hexdigest) for filepath, hexdigest in hashes.items()))
-    try:
+    with open("hashes","w", encoding="utf-8") as h:
+        data = "\n".join(("%s %s" % (filepath, hexdigest) for filepath, hexdigest in hashes.items()))
         h.write(data)
-    finally:
-        h.close()
 
 def get_hashes():
-    
-    strp = str.strip
-    splt = str.split
+    try:
+        with open("hashes", encoding="utf-8") as f:
+            hashes = {}
+            for line in f.readlines():
+                k,v = line.strip().split(' ')
+                hashes[k] = v   
+            return hashes
 
-    def dictmaker(acc, new):
-        k,v = splt(strp(new),'\0')
-        acc[k] = v
-        return acc
-
-    with open("hashes") as f:
-        return reduce(dictmaker, f.readlines(), {})
+    except FileNotFoundError:
+        return {}

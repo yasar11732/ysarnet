@@ -26,7 +26,7 @@ with open("ftp_credentials.txt","r") as ftp_login:
 	host = ftputil.FTPHost(*ftp_login.read().splitlines())
 
 if not new_files:
-    print "no new file"
+    print("no new file")
 
 for f in new_files:
     parts = f.split(os.sep)
@@ -34,20 +34,20 @@ for f in new_files:
     # remove output
     parts = parts[1:]
     target = posixpath.join("/httpdocs",*parts)
-    print "writing", target
+    print("writing", target)
     host.makedirs(posixpath.dirname(target))
     host.upload(f, target)
     
 
 if not dangling_files:
-    print "no dangling files"
+    print("no dangling files")
 
 for f in dangling_files:
 
     parts = f.split(os.sep)
     parts = parts[1:]
     target = posixpath.join("/httpdocs",*parts)
-    print "removing file",target
+    print("removing file",target)
     try:
         host.remove(target)
     except ftputil.ftp_error.PermanentError as err:
