@@ -1,0 +1,138 @@
+<html>
+<head>
+<meta charset="utf-8">
+
+<style>
+.urgent {
+	background : #ff8888;
+}
+
+.moderate {
+	background: #8888ff;
+}
+
+.good {
+	background: #88ff88;
+}
+</style>
+<script type="text/javascript" src="jquery-2.1.1.js"></script>
+
+<!-- this third party library converts csv data to javascript object
+https://code.google.com/p/jquery-csv/
+-->
+<script type="text/javascript" src="jquery.csv-0.71.js"></script>
+
+<script type="text/javascript">
+
+// stolen from: http://stackoverflow.com/a/10073788/886669
+function pad(n, width, z) {
+  z = z || '0';
+  n = n + '';
+  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+}
+
+
+var csv;
+$(document).ready(function() {
+	$.ajax({
+		type:"GET",
+		url:"schedule.csv",
+		dataType:"text",
+		success: function(data) {
+			csv = $.csv.toObjects(data,{"separator":";"});
+			update();
+		}
+	});
+});
+
+function update() {
+	var html_feature = "<tr><th>Film</th><th>Seans</th><th>Kalan</th></tr>"
+	var html_past = "<tr><th>Film</th><th>Seans</th><th>Gecikme</th></tr>"
+	
+	// include this far into feature
+	var feature_treshhold = 45 * 60;
+	// include this far into past
+	var past_treshhold    = 30 * 60;
+	
+	<!-- IMPORTANT: Values below are in minutes, not seconds -->
+	
+	// if less than this many seconds into feature, it is urgent
+	var feature_urgent_treshold = 5;
+	// if less than this many seconds into feature, it is moderately urgent
+	var feature_moderate_treshold = 30;
+	// if less than this many minutes into pass, it is good
+	var past_good_treshold = 5;
+	// if less than this many minutes into pass, it is moderately urgent
+	var past_moderate_treshold = 10;
+	
+	var dt = new Date();
+	d_string = dt.toDateString();
+	
+	for (var row in csv) {
+		var movie_starts = new Date(d_string + " " + csv[row].Time);
+		diff_ms = (movie_starts - dt);
+		diff_secs = Math.round(diff_ms / 1000);
+		var type = ""
+		
+		if (diff_secs > 0 && diff_secs < feature_treshhold) {
+			type = "feature";
+		} else if (diff_secs < 0 && diff_secs > -1 * past_treshhold) {
+			type = "past"
+			diff_secs = -1 * diff_secs;
+		} else {
+			continue;
+		}
+		
+		rem_mins = Math.floor(diff_secs / 60);
+		rem_secs = Math.floor(diff_secs % 60);
+		remaining_string = rem_mins + " dk"
+		
+		var cls = "";
+		if (type == "feature") {
+			if (rem_mins < feature_urgent_treshold) {
+				cls = "urgent";
+			} else if (rem_mins < feature_moderate_treshold) {
+				cls = "moderate";
+			} else {
+				cls = "good";
+			}
+		} else {
+			if (rem_mins < past_good_treshold) {
+				cls = "good";
+			} else if (rem_mins < past_moderate_treshold) {
+				cls = "moderate";
+			} else {
+				cls = "urgent";
+			}
+		}
+		
+		var new_row = ""
+		new_row += '<tr>\r\n';
+		new_row += "<td>" + csv[row].Movie + "</td>";
+		new_row += "<td>" + csv[row].Time + "</td>";
+		new_row += '<td class="' + cls + '">' + remaining_string + "</td>";
+		new_row += '</tr>';
+		
+		if (type == "feature") {
+			html_feature += new_row;
+		} else {
+			html_past += new_row;
+		}
+	}
+	$('#feature').empty();
+	$('#feature').html(html_feature);
+	$('#past').empty();
+	$('#past').html(html_past);
+	setTimeout(update, 60 * 1000)
+}
+</script>
+
+</head>
+
+<body>
+<h1>Geçmiş</h1>
+<table id="past" border=1></table>
+<h1>Gelecek</h1>
+<table id="feature" border=1></table>
+</body>
+<html>
